@@ -468,4 +468,122 @@ function addExperienceField() {
 // Remove experience field
 function removeExperienceField(e) {
     // Don't remove if it's the last field
-    if (
+    if (document.querySelectorAll('.experience-item').length > 1) {
+        e.target.closest('.experience-item').remove();
+    }
+}
+
+// Setup drag and drop functionality
+function setupDragAndDrop() {
+    const staffCards = document.querySelectorAll('.staff-card');
+    
+    staffCards.forEach(card => {
+        card.addEventListener('dragstart', handleDragStart);
+        card.addEventListener('dragend', handleDragEnd);
+    });
+    
+    const zones = document.querySelectorAll('.zone');
+    
+    zones.forEach(zone => {
+        zone.addEventListener('dragover', handleDragOver);
+        zone.addEventListener('dragenter', handleDragEnter);
+        zone.addEventListener('dragleave', handleDragLeave);
+        zone.addEventListener('drop', handleDrop);
+    });
+    
+    // Also make unassigned area a drop target
+    unassignedStaffEl.addEventListener('dragover', handleDragOver);
+    unassignedStaffEl.addEventListener('dragenter', handleDragEnter);
+    unassignedStaffEl.addEventListener('dragleave', handleDragLeave);
+    unassignedStaffEl.addEventListener('drop', handleDropToUnassigned);
+}
+
+function handleDragStart(e) {
+    e.dataTransfer.setData('text/plain', e.target.dataset.employeeId);
+    e.target.classList.add('dragging');
+    
+    // Set drag image to be the card itself
+    const dragImage = e.target.cloneNode(true);
+    dragImage.style.width = `${e.target.offsetWidth}px`;
+    document.body.appendChild(dragImage);
+    e.dataTransfer.setDragImage(dragImage, e.target.offsetWidth / 2, e.target.offsetHeight / 2);
+    
+    setTimeout(() => {
+        document.body.removeChild(dragImage);
+    }, 0);
+}
+
+function handleDragEnd(e) {
+    e.target.classList.remove('dragging');
+    document.querySelectorAll('.zone, .unassigned-staff').forEach(el => {
+        el.classList.remove('drop-zone');
+    });
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+}
+
+function handleDragEnter(e) {
+    e.preventDefault();
+    const target = e.target.closest('.zone, .unassigned-staff');
+    if (target) {
+        target.classList.add('drop-zone');
+    }
+}
+
+function handleDragLeave(e) {
+    if (!e.target.closest('.zone, .unassigned-staff')) {
+        document.querySelectorAll('.zone, .unassigned-staff').forEach(el => {
+            el.classList.remove('drop-zone');
+        });
+    }
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    const employeeId = e.dataTransfer.getData('text/plain');
+    const zoneEl = e.target.closest('.zone');
+    
+    if (!zoneEl) return;
+    
+    const zoneId = zoneEl.dataset.zoneId;
+    assignEmployeeToZone(employeeId, zoneId);
+    
+    document.querySelectorAll('.zone, .unassigned-staff').forEach(el => {
+        el.classList.remove('drop-zone');
+    });
+}
+
+function handleDropToUnassigned(e) {
+    e.preventDefault();
+    const employeeId = e.dataTransfer.getData('text/plain');
+    removeEmployeeFromZone(employeeId);
+    
+    document.querySelectorAll('.zone, .unassigned-staff').forEach(el => {
+        el.classList.remove('drop-zone');
+    });
+}
+
+// Generate unique ID
+function generateId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
+
+// Save to localStorage
+function saveToLocalStorage() {
+    localStorage.setItem('workSphereData', JSON.stringify(state.employees));
+}
+
+// Load from localStorage
+function loadFromLocalStorage() {
+    const savedData = localStorage.getItem('workSphereData');
+    if (savedData) {
+        state.employees = JSON.parse(savedData);
+        renderUnassignedStaff();
+        renderFloorPlan();
+    }
+}
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', init);
