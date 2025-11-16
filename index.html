@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkSphere - Virtual Workspace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-200">
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        <!-- Sidebar -->
+        <aside class="w-full lg:w-80 bg-white shadow-lg p-6 lg:h-screen lg:overflow-y-auto">
+            <div class="flex items-center mb-8">
+                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3">WS</div>
+                <h1 class="text-2xl font-bold text-blue-600">WorkSphere</h1>
+            </div>
+            
+            <div class="mb-6">
+                <h2 class="text-lg font-semibold text-gray-700 mb-4">Personnel non assigné</h2>
+                <button id="addWorkerBtn" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition duration-200 flex items-center justify-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    Ajouter un employé
+                </button>
+            </div>
+            
+            <div id="unassignedStaff" class="border-2 border-dashed border-gray-300 rounded-lg p-4 min-h-40">
+                <!-- Unassigned staff will be added here dynamically -->
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="flex-1 p-6 overflow-auto">
+            <div id="floorPlan" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Zones will be added here dynamically -->
+            </div>
+        </main>
+    </div>
+    
+    <!-- Add Employee Modal -->
+    <div id="addEmployeeModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold text-gray-800">Ajouter un employé</h2>
+                <button id="closeAddModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="employeeForm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="form-group">
+                            <label for="employeeName" class="block text-sm font-medium text-gray-700 mb-1">Nom *</label>
+                            <input type="text" id="employeeName" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="employeeRole" class="block text-sm font-medium text-gray-700 mb-1">Rôle *</label>
+                            <select id="employeeRole" class="form-control" required>
+                                <option value="">Sélectionner un rôle</option>
+                                <option value="manager">Manager</option>
+                                <option value="receptionist">Réceptionniste</option>
+                                <option value="technician">Technicien IT</option>
+                                <option value="security">Agent de sécurité</option>
+                                <option value="cleaning">Nettoyage</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group md:col-span-2">
+                            <label for="employeePhoto" class="block text-sm font-medium text-gray-700 mb-1">Photo (URL)</label>
+                            <input type="url" id="employeePhoto" class="form-control" placeholder="https://example.com/photo.jpg">
+                            <img id="photoPreview" class="photo-preview" alt="Aperçu de la photo">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="employeeEmail" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                            <input type="email" id="employeeEmail" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="employeePhone" class="block text-sm font-medium text-gray-700 mb-1">Téléphone *</label>
+                            <input type="tel" id="employeePhone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group mt-4">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Expériences professionnelles</label>
+                        <div id="experiencesContainer">
+                            <div class="experience-item flex gap-2 mb-2">
+                                <input type="text" class="form-control experience-input flex-1" placeholder="Description de l'expérience">
+                                <button type="button" class="remove-experience-btn bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center hover:bg-red-600 transition duration-200">&times;</button>
+                            </div>
+                        </div>
+                        <button type="button" id="addExperienceBtn" class="bg-gray-200 hover:bg-gray-300 text-gray-700 py-2 px-4 rounded-lg text-sm transition duration-200">
+                            + Ajouter une expérience
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelAddEmployee" class="btn-secondary">Annuler</button>
+                <button id="saveEmployee" class="btn-primary">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Employee Profile Modal -->
+    <div id="employeeProfileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold text-gray-800">Profil de l'employé</h2>
+                <button id="closeProfileModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="profileContent" class="profile-content">
+                    <!-- Profile content will be added here dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="closeProfile" class="btn-secondary">Fermer</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Assign to Zone Modal -->
+    <div id="assignToZoneModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="text-xl font-bold text-gray-800">Assigner à la zone</h2>
+                <button id="closeAssignModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="eligibleStaffList" class="space-y-3">
+                    <!-- Eligible staff will be added here dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelAssign" class="btn-secondary">Annuler</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
