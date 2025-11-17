@@ -7,7 +7,7 @@ const state = {
             name: 'Salle de conférence',
             capacity: 10,
             required: false,
-            position: { top: '20%', left: '15%', width: '25%', height: '30%' },
+            position: { top: '0%', left: '0%', width: '50.1%', height: '38.3%' },
             allowedRoles: ['manager', 'receptionist', 'technician', 'security', 'cleaning', 'other']
         },
         {
@@ -15,39 +15,55 @@ const state = {
             name: 'Réception',
             capacity: 2,
             required: true,
-            position: { top: '10%', left: '60%', width: '15%', height: '20%' },
+            position: { top: '38.3%', left: '0%', width: '50.1%', height: '26.6%' },
             allowedRoles: ['manager', 'receptionist']
+        },
+        {
+            id: 'lounge',
+            name: 'Salon',
+            capacity: 6,
+            required: false,
+            position: { top: '64.8%', left: '0%', width: '50.1%', height: '35.2%' },
+            allowedRoles: ['manager', 'receptionist', 'technician', 'security', 'cleaning', 'other']
+        },
+        {
+            id: 'hallway',
+            name: 'Couloir central',
+            capacity: 5,
+            required: false,
+            position: { top: '0%', left: '50.1%', width: '29.5%', height: '100%' },
+            allowedRoles: ['manager', 'receptionist', 'technician', 'security', 'cleaning', 'other']
         },
         {
             id: 'server',
             name: 'Salle des serveurs',
             capacity: 3,
             required: true,
-            position: { top: '40%', left: '70%', width: '20%', height: '25%' },
+            position: { top: '0%', left: '79.7%', width: '20.3%', height: '38.3%' },
             allowedRoles: ['manager', 'technician']
+        },
+        {
+            id: 'office',
+            name: 'Bureau',
+            capacity: 4,
+            required: false,
+            position: { top: '38.3%', left: '79.7%', width: '20.3%', height: '26.6%' },
+            allowedRoles: ['manager', 'receptionist', 'technician', 'security', 'other']
         },
         {
             id: 'security',
             name: 'Salle de sécurité',
             capacity: 2,
             required: true,
-            position: { top: '60%', left: '20%', width: '15%', height: '20%' },
+            position: { top: '64.8%', left: '50.1%', width: '29.5%', height: '35.2%' },
             allowedRoles: ['manager', 'security']
-        },
-        {
-            id: 'staff',
-            name: 'Salle du personnel',
-            capacity: 8,
-            required: false,
-            position: { top: '50%', left: '45%', width: '20%', height: '25%' },
-            allowedRoles: ['manager', 'receptionist', 'technician', 'security', 'cleaning', 'other']
         },
         {
             id: 'archives',
             name: 'Salle d\'archives',
             capacity: 2,
             required: true,
-            position: { top: '75%', left: '65%', width: '15%', height: '15%' },
+            position: { top: '64.8%', left: '79.7%', width: '20.3%', height: '35.2%' },
             allowedRoles: ['manager', 'receptionist', 'technician', 'security', 'other']
         }
     ],
@@ -94,6 +110,12 @@ function renderZoneOverlays() {
         overlay.style.width = zone.position.width;
         overlay.style.height = zone.position.height;
         
+        // Ajouter un label pour identifier la zone
+        const label = document.createElement('div');
+        label.className = 'zone-label';
+        label.textContent = zone.name;
+        overlay.appendChild(label);
+        
         overlay.title = `${zone.name} (${getZoneEmployees(zone.id).length}/${zone.capacity})`;
         
         zoneOverlaysEl.appendChild(overlay);
@@ -122,7 +144,7 @@ function createEmployeeMarker(employee, zone) {
     marker.className = `employee-marker ${employee.role}`;
     marker.dataset.employeeId = employee.id;
     
-    // Position aléatoire dans la zone
+    // Position aléatoire dans la zone (évite les chevauchements)
     const zoneRect = {
         top: parseFloat(zone.position.top),
         left: parseFloat(zone.position.left),
@@ -130,14 +152,18 @@ function createEmployeeMarker(employee, zone) {
         height: parseFloat(zone.position.height)
     };
     
-    const randomTop = zoneRect.top + Math.random() * (zoneRect.height - 10);
-    const randomLeft = zoneRect.left + Math.random() * (zoneRect.width - 10);
+    // Position plus intelligente pour éviter les chevauchements
+    const employeesInZone = getZoneEmployees(zone.id);
+    const employeeIndex = employeesInZone.findIndex(emp => emp.id === employee.id);
     
-    marker.style.top = `${randomTop}%`;
-    marker.style.left = `${randomLeft}%`;
+    const positions = calculatePositions(employeesInZone.length, zoneRect);
+    const position = positions[employeeIndex] || positions[0];
+    
+    marker.style.top = `${position.top}%`;
+    marker.style.left = `${position.left}%`;
     
     // Initiales pour l'affichage
-    const initials = employee.name.split(' ').map(n => n[0]).join('').toUpperCase();
+    const initials = employee.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
     marker.innerHTML = `<div class="initials">${initials}</div>`;
     
     marker.title = `${employee.name} - ${getRoleDisplayName(employee.role)}`;
@@ -159,6 +185,35 @@ function createEmployeeMarker(employee, zone) {
     marker.addEventListener('dragend', handleDragEnd);
     
     floorPlanEl.appendChild(marker);
+}
+
+// Calculate positions to avoid overlapping
+function calculatePositions(count, zoneRect) {
+    const positions = [];
+    
+    if (count === 1) {
+        // Centrer si un seul employé
+        positions.push({
+            top: zoneRect.top + zoneRect.height / 2 - 2.5,
+            left: zoneRect.left + zoneRect.width / 2 - 2.5
+        });
+    } else {
+        // Répartir intelligemment selon le nombre d'employés
+        const rows = Math.ceil(Math.sqrt(count));
+        const cols = Math.ceil(count / rows);
+        
+        for (let i = 0; i < count; i++) {
+            const row = Math.floor(i / cols);
+            const col = i % cols;
+            
+            const top = zoneRect.top + (row + 0.5) * (zoneRect.height / rows) - 2.5;
+            const left = zoneRect.left + (col + 0.5) * (zoneRect.width / cols) - 2.5;
+            
+            positions.push({ top, left });
+        }
+    }
+    
+    return positions;
 }
 
 // Render unassigned staff
@@ -269,14 +324,26 @@ function setupZoneEventListeners() {
             const zone = state.zones.find(z => z.id === zoneId);
             
             if (employeesInZone.length > 0) {
-                // Afficher les employés de cette zone
                 const employeeList = employeesInZone.map(emp => 
                     `• ${emp.name} (${getRoleDisplayName(emp.role)})`
                 ).join('\n');
                 alert(`${zone.name}:\n${employeeList}`);
             } else {
-                alert(`${zone.name} - Aucun employé assigné`);
+                // Si la zone est vide mais requise, proposer d'ajouter un employé
+                if (zone.required) {
+                    if (confirm(`${zone.name} est vide mais requise. Voulez-vous assigner un employé ?`)) {
+                        openAssignToZoneModal(zoneId);
+                    }
+                } else {
+                    alert(`${zone.name} - Aucun employé assigné`);
+                }
             }
+        });
+        
+        // Double-click pour assigner un employé
+        overlay.addEventListener('dblclick', (e) => {
+            const zoneId = e.target.dataset.zoneId;
+            openAssignToZoneModal(zoneId);
         });
         
         // Drag and drop
@@ -285,6 +352,48 @@ function setupZoneEventListeners() {
         overlay.addEventListener('dragleave', handleDragLeave);
         overlay.addEventListener('drop', handleDrop);
     });
+}
+
+// Open modal to assign employee to zone
+function openAssignToZoneModal(zoneId) {
+    const zone = state.zones.find(z => z.id === zoneId);
+    const currentEmployees = getZoneEmployees(zoneId).length;
+    
+    if (currentEmployees >= zone.capacity) {
+        alert(`Cette zone est déjà pleine (${zone.capacity} employés maximum)`);
+        return;
+    }
+    
+    // Get eligible employees for this zone
+    const eligibleEmployees = state.employees.filter(emp => 
+        !emp.assignedZone && zone.allowedRoles.includes(emp.role)
+    );
+    
+    if (eligibleEmployees.length === 0) {
+        alert('Aucun employé éligible pour cette zone');
+        return;
+    }
+    
+    const employeeList = eligibleEmployees.map(emp => 
+        `${emp.name} (${getRoleDisplayName(emp.role)})`
+    ).join('\n');
+    
+    const selected = prompt(
+        `Assigner un employé à ${zone.name}:\n\n${employeeList}\n\nEntrez le nom de l'employé:`,
+        eligibleEmployees[0].name
+    );
+    
+    if (selected) {
+        const employee = eligibleEmployees.find(emp => 
+            emp.name.toLowerCase().includes(selected.toLowerCase())
+        );
+        
+        if (employee) {
+            assignEmployeeToZone(employee.id, zoneId);
+        } else {
+            alert('Employé non trouvé');
+        }
+    }
 }
 
 // Open add employee modal
@@ -386,6 +495,12 @@ function openEmployeeProfile(employeeId) {
             </div>
             ` : ''}
         </div>
+        
+        <div class="mt-4 w-full">
+            <button onclick="removeEmployeeFromZone('${employee.id}')" class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition duration-200">
+                Retirer de la zone
+            </button>
+        </div>
     `;
     
     employeeProfileModal.style.display = 'flex';
@@ -406,6 +521,7 @@ function removeEmployeeFromZone(employeeId) {
     renderFloorPlan();
     renderZoneOverlays();
     renderUnassignedStaff();
+    closeEmployeeProfile();
 }
 
 // Remove employee completely
@@ -530,6 +646,9 @@ function loadFromLocalStorage() {
         renderUnassignedStaff();
     }
 }
+
+// Make functions globally available for onclick events
+window.removeEmployeeFromZone = removeEmployeeFromZone;
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', init);

@@ -369,3 +369,98 @@
     border: 2px dashed var(--primary-color);
     background: rgba(59, 130, 246, 0.3);
 }
+
+
+/* Ajouter ces styles à la fin du fichier CSS existant */
+
+/* Zone Label Styles */
+.zone-label {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #374151;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Amélioration des overlays de zone */
+.zone-overlay {
+    position: absolute;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.zone-overlay:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: var(--primary-color);
+}
+
+.zone-overlay.required-empty {
+    border-color: var(--danger-color);
+    background: rgba(239, 68, 68, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { background: rgba(239, 68, 68, 0.1); }
+    50% { background: rgba(239, 68, 68, 0.2); }
+    100% { background: rgba(239, 68, 68, 0.1); }
+}
+
+/* Employee Marker Improvements */
+.employee-marker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    font-size: 0.7rem;
+    text-align: center;
+    z-index: 10;
+}
+
+.employee-marker:hover {
+    transform: scale(1.15);
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.employee-marker.manager { background-color: #8b5cf6; }
+.employee-marker.receptionist { background-color: #3b82f6; }
+.employee-marker.technician { background-color: #10b981; }
+.employee-marker.security { background-color: #ef4444; }
+.employee-marker.cleaning { background-color: #f59e0b; }
+.employee-marker.other { background-color: #6b7280; }
+
+.employee-marker .initials {
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Drag and Drop Improvements */
+.employee-marker.dragging {
+    opacity: 0.7;
+    transform: scale(0.9);
+}
+
+.zone-overlay.drop-zone {
+    border: 2px dashed var(--primary-color);
+    background: rgba(59, 130, 246, 0.2);
+}
