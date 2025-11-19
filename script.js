@@ -26,7 +26,6 @@ const roomRules = {
   ],
 };
 
-// Fetch workers data from JSON file
 async function fetchWorkersData() {
   try {
     const response = await fetch("workers.json");
@@ -38,20 +37,16 @@ async function fetchWorkersData() {
     initializeApp();
   } catch (error) {
     console.error("Error loading workers data:", error);
-    // Fallback to empty array if fetch fails
     workers = [];
     initializeApp();
   }
 }
 
-// Event Listeners Setup
 function setupEventListeners() {
-  // Add worker button
   document
     .getElementById("addWorkerBtn")
     .addEventListener("click", openAddWorkerModal);
 
-  // Close modal buttons
   document
     .getElementById("closeAddWorkerModal")
     .addEventListener("click", closeAddWorkerModal);
@@ -62,20 +57,16 @@ function setupEventListeners() {
     .getElementById("closeSelectWorkerModal")
     .addEventListener("click", closeSelectWorkerModal);
 
-  // Form submission
   document.getElementById("workerForm").addEventListener("submit", addWorker);
 
-  // Photo preview
   document
     .getElementById("workerPhoto")
     .addEventListener("change", previewPhoto);
 
-  // Add experience button
   document
     .getElementById("addExperienceBtn")
     .addEventListener("click", addExperienceField);
 
-  // Add to room buttons
   document.querySelectorAll(".add-to-room-btn").forEach((button) => {
     button.addEventListener("click", function () {
       const room = this.getAttribute("data-room");
@@ -83,7 +74,6 @@ function setupEventListeners() {
     });
   });
 
-  // Close modals on outside click
   document.querySelectorAll(".modal").forEach((modal) => {
     modal.addEventListener("click", function (event) {
       if (event.target === this) {
@@ -162,7 +152,6 @@ function addExperienceField() {
             `;
   list.appendChild(expDiv);
 
-  // Add event listener to the new remove button
   expDiv
     .querySelector(".remove-experience-btn")
     .addEventListener("click", function () {
@@ -231,8 +220,8 @@ function renderUnassigned() {
     )
     .join("");
 
-  // Add event listeners to worker cards
-  document.querySelectorAll("#unassignedList .worker-card").forEach((card) => {
+
+    document.querySelectorAll("#unassignedList .worker-card").forEach((card) => {
     card.addEventListener("click", function () {
       const workerId = parseInt(this.getAttribute("data-id"));
       showProfile(workerId);
@@ -261,8 +250,8 @@ function renderRoom(room) {
     )
     .join("");
 
-  // Add event listeners to room worker elements
-  document
+
+    document
     .querySelectorAll(
       `#workers-${room} .room-worker img, #workers-${room} .room-worker-info`
     )
@@ -273,8 +262,9 @@ function renderRoom(room) {
       });
     });
 
-  // Add event listeners to remove buttons
-  document
+
+
+    document
     .querySelectorAll(`#workers-${room} .remove-btn`)
     .forEach((button) => {
       button.addEventListener("click", function () {
@@ -349,8 +339,13 @@ function openSelectWorkerModal(room) {
     )
     .join("");
 
-  // Add event listeners to worker cards in selection modal
-  document
+
+
+
+
+
+
+    document
     .querySelectorAll("#workerSelectList .worker-card")
     .forEach((card) => {
       card.addEventListener("click", function () {
@@ -449,7 +444,7 @@ function closeProfileModal() {
   document.getElementById("profileModal").classList.remove("active");
 }
 
-// Initialize
+
 function initializeApp() {
   setupEventListeners();
   renderUnassigned();
@@ -465,5 +460,4 @@ function initializeApp() {
   });
 }
 
-// Start the application by fetching data
 fetchWorkersData();
