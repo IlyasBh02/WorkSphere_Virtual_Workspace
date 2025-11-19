@@ -3,12 +3,12 @@ let workers = [];
 let currentRoomForSelection = "";
 
 const roomCapacity = {
-  conference: 10,
+  conference: 8,
   reception: 3,
-  server: 5,
-  security: 4,
-  staff: 15,
-  archives: 5,
+  server: 4,
+  security: 2,
+  staff: 5,
+  archives: 6,
 };
 
 const roomRules = {
