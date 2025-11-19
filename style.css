@@ -263,6 +263,8 @@ body {
 .room-workers {
   display: flex;
   flex-direction: column;
+  width: 40%;
+  height: 40%;
   gap: 10px;
 }
 
@@ -293,13 +295,13 @@ body {
 }
 
 .room-worker-info h4 {
-  font-size: 14px;
+  font-size: 10px;
   color: #212529;
   margin-bottom: 2px;
 }
 
 .room-worker-info p {
-  font-size: 12px;
+  font-size: 8px;
   color: #6c757d;
 }
 
