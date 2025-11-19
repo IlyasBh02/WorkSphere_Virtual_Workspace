@@ -152,12 +152,12 @@ function addExperienceField() {
                     <input type="text" class="exp-company" placeholder="Ex: TechCorp">
                 </div>
                 <div class="form-group">
-                    <label>Période</label>
-                    <input type="date" class="exp-period" placeholder="Ex: 2020-2023">
+                    <label>Date de début</label>
+                    <input type="date" class="exp-period" placeholder="Ex: 20/11/2025">
                 </div>
                 <div class="form-group">
-                    <label>Période</label>
-                    <input type="date" class="exp-period" placeholder="Ex: 2020-2023">
+                    <label>date de fin</label>
+                    <input type="date" class="exp-period" placeholder="Ex: 20/11/2025">
                 </div>
             `;
   list.appendChild(expDiv);
@@ -169,7 +169,6 @@ function addExperienceField() {
       removeExperience(this);
     });
 }
-
 function removeExperience(btn) {
   btn.parentElement.remove();
 }
