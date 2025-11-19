@@ -587,3 +587,18 @@ body {
   padding: 30px;
   font-style: italic;
 }
+
+
+/* Add to style.css */
+@media (max-width: 1279px) {
+  .container { flex-direction: column; }
+  .sidebar { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .workspace-grid { 
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+  .room-card { margin: 0 !important; }
+}
