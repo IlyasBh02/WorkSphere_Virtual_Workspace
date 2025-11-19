@@ -319,11 +319,11 @@ body {
   transform: scale(1.1);
 }
 
-.room-capacity {
+/* .room-capacity {
   font-size: 12px;
   color: #6c757d;
   margin-top: 10px;
-}
+} */
 
 /* Modal */
 .modal {
@@ -481,7 +481,7 @@ body {
 .submit-btn {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
   color: white;
   border: none;
   border-radius: 12px;

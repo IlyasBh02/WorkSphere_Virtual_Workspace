@@ -153,7 +153,11 @@ function addExperienceField() {
                 </div>
                 <div class="form-group">
                     <label>Période</label>
-                    <input type="text" class="exp-period" placeholder="Ex: 2020-2023">
+                    <input type="date" class="exp-period" placeholder="Ex: 2020-2023">
+                </div>
+                <div class="form-group">
+                    <label>Période</label>
+                    <input type="date" class="exp-period" placeholder="Ex: 2020-2023">
                 </div>
             `;
   list.appendChild(expDiv);
