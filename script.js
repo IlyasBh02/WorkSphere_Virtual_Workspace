@@ -1,198 +1,198 @@
 let workers = [
-  {
-    id: 1,
-    name: "Alexandre Dubois",
-    role: "Réceptionniste",
-    photo: "https://i.pravatar.cc/150?img=12",
-    email: "alexandre.dubois@worksphere.com",
-    phone: "+33 6 78 90 12 34",
-    experiences: [
-      {
-        title: "Réceptionniste",
-        company: "Grand Hotel Paris",
-        period: "2019-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 2,
-    name: "Sophie Laurent",
-    role: "Technicien IT",
-    photo: "https://i.pravatar.cc/150?img=10",
-    email: "sophie.laurent@worksphere.com",
-    phone: "+33 6 89 01 23 45",
-    experiences: [
-      {
-        title: "Support Technique",
-        company: "ITSolutions",
-        period: "2020-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 3,
-    name: "Marc Fontaine",
-    role: "Agent de Sécurité",
-    photo:
-      "https://facts.net/wp-content/uploads/2020/03/lord-voldemort-1024x683.jpg",
-    email: "marc.fontaine@worksphere.com",
-    phone: "+33 6 90 12 34 56",
-    experiences: [
-      {
-        title: "Agent de Sécurité",
-        company: "ProtectPlus",
-        period: "2017-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 4,
-    name: "Julie Mercier",
-    role: "Manager",
-    photo: "https://i.pravatar.cc/150?img=20",
-    email: "julie.mercier@worksphere.com",
-    phone: "+33 6 01 23 45 67",
-    experiences: [
-      {
-        title: "Manager d'Équipe",
-        company: "Enterprise Solutions",
-        period: "2018-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 5,
-    name: "Thomas Rousseau",
-    role: "Nettoyage",
-    photo: "https://i.pravatar.cc/150?img=33",
-    email: "thomas.rousseau@worksphere.com",
-    phone: "+33 6 12 34 56 78",
-    experiences: [
-      {
-        title: "Agent d'Entretien",
-        company: "CleanService",
-        period: "2021-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 6,
-    name: "Emma Girard",
-    role: "Employé",
-    photo: "https://i.pravatar.cc/150?img=25",
-    email: "emma.girard@worksphere.com",
-    phone: "+33 6 23 45 67 89",
-    experiences: [
-      {
-        title: "Employé Polyvalent",
-        company: "MultiServices",
-        period: "2022-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 7,
-    name: "Léa Martin",
-    role: "Réceptionniste",
-    photo: "https://i.pravatar.cc/150?img=24",
-    email: "lea.martin@worksphere.com",
-    phone: "+33 6 34 56 78 90",
-    experiences: [
-      {
-        title: "Accueil et Relations Clients",
-        company: "Receptio Pro",
-        period: "2020-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 8,
-    name: "Maxime Renault",
-    role: "Technicien IT",
-    photo: "https://i.pravatar.cc/150?img=18",
-    email: "maxime.renault@worksphere.com",
-    phone: "+33 6 45 67 89 01",
-    experiences: [
-      {
-        title: "Technicien Réseau",
-        company: "NetworkPro",
-        period: "2019-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 9,
-    name: "Lucas Blanc",
-    role: "Agent de Sécurité",
-    photo:
-      "https://th.bing.com/th/id/R.f8e97ac7817ee899ad1e100aaaf0a926?rik=ybvVvhrCKejvEw&riu=http%3a%2f%2fimg3.wikia.nocookie.net%2f__cb20121217054915%2fdexter%2fimages%2fthumb%2f8%2f8a%2fSurpriseMFS7.png%2f500px-SurpriseMFS7.png&ehk=5XiZt%2bTb%2b3Sr84WoAxUwNUYlMesYhMiO%2f%2flTGJsAyNk%3d&risl=&pid=ImgRaw&r=0",
-    email: "lucas.blanc@worksphere.com",
-    phone: "+33 6 56 78 90 12",
-    experiences: [
-      {
-        title: "Agent de Surveillance",
-        company: "SafetyFirst",
-        period: "2020-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 10,
-    name: "Nicolas Dumas",
-    role: "Manager",
-    photo: "https://i.pravatar.cc/150?img=17",
-    email: "nicolas.dumas@worksphere.com",
-    phone: "+33 6 67 89 01 23",
-    experiences: [
-      {
-        title: "Responsable d'Exploitation",
-        company: "ManageCo",
-        period: "2016-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 11,
-    name: "Camille Bernard",
-    role: "Nettoyage",
-    photo: "https://i.pravatar.cc/150?img=27",
-    email: "camille.bernard@worksphere.com",
-    phone: "+33 6 78 90 12 34",
-    experiences: [
-      {
-        title: "Technicienne de Surface",
-        company: "HygiènePlus",
-        period: "2021-2024",
-      },
-    ],
-    room: null,
-  },
-  {
-    id: 12,
-    name: "Antoine Roux",
-    role: "Employé",
-    photo: "https://i.pravatar.cc/150?img=31",
-    email: "antoine.roux@worksphere.com",
-    phone: "+33 6 89 01 23 45",
-    experiences: [
-      {
-        title: "Assistant Opérationnel",
-        company: "WorkFlow",
-        period: "2023-2024",
-      },
-    ],
-    room: null,
-  },
+  // {
+  //   id: 1,
+  //   name: "Alexandre Dubois",
+  //   role: "Réceptionniste",
+  //   photo: "https://i.pravatar.cc/150?img=12",
+  //   email: "alexandre.dubois@worksphere.com",
+  //   phone: "+33 6 78 90 12 34",
+  //   experiences: [
+  //     {
+  //       title: "Réceptionniste",
+  //       company: "Grand Hotel Paris",
+  //       period: "2019-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 2,
+  //   name: "Sophie Laurent",
+  //   role: "Technicien IT",
+  //   photo: "https://i.pravatar.cc/150?img=10",
+  //   email: "sophie.laurent@worksphere.com",
+  //   phone: "+33 6 89 01 23 45",
+  //   experiences: [
+  //     {
+  //       title: "Support Technique",
+  //       company: "ITSolutions",
+  //       period: "2020-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 3,
+  //   name: "Marc Fontaine",
+  //   role: "Agent de Sécurité",
+  //   photo:
+  //     "https://facts.net/wp-content/uploads/2020/03/lord-voldemort-1024x683.jpg",
+  //   email: "marc.fontaine@worksphere.com",
+  //   phone: "+33 6 90 12 34 56",
+  //   experiences: [
+  //     {
+  //       title: "Agent de Sécurité",
+  //       company: "ProtectPlus",
+  //       period: "2017-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 4,
+  //   name: "Julie Mercier",
+  //   role: "Manager",
+  //   photo: "https://i.pravatar.cc/150?img=20",
+  //   email: "julie.mercier@worksphere.com",
+  //   phone: "+33 6 01 23 45 67",
+  //   experiences: [
+  //     {
+  //       title: "Manager d'Équipe",
+  //       company: "Enterprise Solutions",
+  //       period: "2018-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 5,
+  //   name: "Thomas Rousseau",
+  //   role: "Nettoyage",
+  //   photo: "https://i.pravatar.cc/150?img=33",
+  //   email: "thomas.rousseau@worksphere.com",
+  //   phone: "+33 6 12 34 56 78",
+  //   experiences: [
+  //     {
+  //       title: "Agent d'Entretien",
+  //       company: "CleanService",
+  //       period: "2021-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 6,
+  //   name: "Emma Girard",
+  //   role: "Employé",
+  //   photo: "https://i.pravatar.cc/150?img=25",
+  //   email: "emma.girard@worksphere.com",
+  //   phone: "+33 6 23 45 67 89",
+  //   experiences: [
+  //     {
+  //       title: "Employé Polyvalent",
+  //       company: "MultiServices",
+  //       period: "2022-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 7,
+  //   name: "Léa Martin",
+  //   role: "Réceptionniste",
+  //   photo: "https://i.pravatar.cc/150?img=24",
+  //   email: "lea.martin@worksphere.com",
+  //   phone: "+33 6 34 56 78 90",
+  //   experiences: [
+  //     {
+  //       title: "Accueil et Relations Clients",
+  //       company: "Receptio Pro",
+  //       period: "2020-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 8,
+  //   name: "Maxime Renault",
+  //   role: "Technicien IT",
+  //   photo: "https://i.pravatar.cc/150?img=18",
+  //   email: "maxime.renault@worksphere.com",
+  //   phone: "+33 6 45 67 89 01",
+  //   experiences: [
+  //     {
+  //       title: "Technicien Réseau",
+  //       company: "NetworkPro",
+  //       period: "2019-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 9,
+  //   name: "Lucas Blanc",
+  //   role: "Agent de Sécurité",
+  //   photo:
+  //     "https://th.bing.com/th/id/R.f8e97ac7817ee899ad1e100aaaf0a926?rik=ybvVvhrCKejvEw&riu=http%3a%2f%2fimg3.wikia.nocookie.net%2f__cb20121217054915%2fdexter%2fimages%2fthumb%2f8%2f8a%2fSurpriseMFS7.png%2f500px-SurpriseMFS7.png&ehk=5XiZt%2bTb%2b3Sr84WoAxUwNUYlMesYhMiO%2f%2flTGJsAyNk%3d&risl=&pid=ImgRaw&r=0",
+  //   email: "lucas.blanc@worksphere.com",
+  //   phone: "+33 6 56 78 90 12",
+  //   experiences: [
+  //     {
+  //       title: "Agent de Surveillance",
+  //       company: "SafetyFirst",
+  //       period: "2020-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 10,
+  //   name: "Nicolas Dumas",
+  //   role: "Manager",
+  //   photo: "https://i.pravatar.cc/150?img=17",
+  //   email: "nicolas.dumas@worksphere.com",
+  //   phone: "+33 6 67 89 01 23",
+  //   experiences: [
+  //     {
+  //       title: "Responsable d'Exploitation",
+  //       company: "ManageCo",
+  //       period: "2016-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 11,
+  //   name: "Camille Bernard",
+  //   role: "Nettoyage",
+  //   photo: "https://i.pravatar.cc/150?img=27",
+  //   email: "camille.bernard@worksphere.com",
+  //   phone: "+33 6 78 90 12 34",
+  //   experiences: [
+  //     {
+  //       title: "Technicienne de Surface",
+  //       company: "HygiènePlus",
+  //       period: "2021-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
+  // {
+  //   id: 12,
+  //   name: "Antoine Roux",
+  //   role: "Employé",
+  //   photo: "https://i.pravatar.cc/150?img=31",
+  //   email: "antoine.roux@worksphere.com",
+  //   phone: "+33 6 89 01 23 45",
+  //   experiences: [
+  //     {
+  //       title: "Assistant Opérationnel",
+  //       company: "WorkFlow",
+  //       period: "2023-2024",
+  //     },
+  //   ],
+  //   room: null,
+  // },
 ];
 
 let currentRoom = "";
@@ -206,19 +206,22 @@ const roomSizes = {
   archives: 5,
 };
 
+function fetchWorkersData() {
+  fetch("workers.json")
+    .then(response => response.json())
+    .then(data => {
+      workers = data.workers;
+      startApp(); 
+    })
+    .catch(error => console.log("Erreur :", error));
+}
+
+
 const roomPermissions = {
   reception: ["Réceptionniste", "Manager", "Nettoyage"],
   server: ["Technicien IT", "Manager"],
   security: ["Agent de Sécurité", "Manager", "Nettoyage"],
   archives: ["Manager"],
-  staff: [
-    "Manager",
-    "Nettoyage",
-    "Employé",
-    "Réceptionniste",
-    "Technicien IT",
-    "Agent de Sécurité",
-  ],
 };
 
 const roomTitles = {
@@ -251,7 +254,7 @@ function getRoleStyle(role) {
 }
 
 function canWorkInRoom(role, room) {
-  if (room === "conference") return true;
+  if (room === "conference" || room === "staff") return true;
   if (role === "Manager") return true;
   if (!roomPermissions[room]) return true;
   return roomPermissions[room].includes(role);
@@ -314,21 +317,21 @@ function hideError(input) {
 }
 
 const fieldChecks = {
-  workerName: (value) => {
+  workerName: function (value) {
     if (!value) {
       showError("workerName", "Le nom complet est requis");
       return false;
     }
     return true;
   },
-  workerRole: (value) => {
+  workerRole: function (value) {
     if (!value) {
       showError("workerRole", "Veuillez sélectionner un rôle");
       return false;
     }
     return true;
   },
-  workerEmail: (value) => {
+  workerEmail: function (value) {
     if (!value) {
       showError("workerEmail", "L'email est requis");
       return false;
@@ -339,7 +342,7 @@ const fieldChecks = {
     }
     return true;
   },
-  workerPhone: (value) => {
+  workerPhone: function (value) {
     if (!value) {
       showError("workerPhone", "Le téléphone est requis");
       return false;
@@ -373,9 +376,9 @@ function checkExperiences() {
     return false;
   }
 
-  let allGood = true;
+  let allGood = true; 
 
-  experienceItems.forEach((item) => {
+  experienceItems.forEach(function (item) {
     let titleField = item.querySelector(".exp-title");
     let companyField = item.querySelector(".exp-company");
     let startField = item.querySelector(".exp-start-date");
@@ -416,10 +419,10 @@ function checkExperiences() {
 }
 
 function checkAllFields() {
-  document.querySelectorAll(".error-msg").forEach((el) => {
+  document.querySelectorAll(".error-msg").forEach(function (el) {
     el.remove();
   });
-  document.querySelectorAll(".error").forEach((el) => {
+  document.querySelectorAll(".error").forEach(function (el) {
     el.classList.remove("error");
   });
 
@@ -443,10 +446,10 @@ function closeModal(modalId) {
     getElement("workerForm").reset();
     getElement("photoPreview").style.display = "none";
     getElement("experiencesList").innerHTML = "";
-    document.querySelectorAll(".error-msg").forEach((el) => {
+    document.querySelectorAll(".error-msg").forEach(function (el) {
       el.remove();
     });
-    document.querySelectorAll(".error").forEach((el) => {
+    document.querySelectorAll(".error").forEach(function (el) {
       el.classList.remove("error");
     });
   }
@@ -490,7 +493,7 @@ function addNewWorker(e) {
   let experiences = [];
   let experienceItems = document.querySelectorAll(".experience-item");
 
-  experienceItems.forEach((item) => {
+  experienceItems.forEach(function (item) {
     let startDate = new Date(item.querySelector(".exp-start-date").value);
     let endDate = new Date(item.querySelector(".exp-end-date").value);
 
@@ -526,21 +529,35 @@ function addNewWorker(e) {
 }
 
 function makeWorkerCard(worker) {
-  return `<div class="worker-card" data-id="${worker.id}">
-    <img src="${worker.photo}" alt="${worker.name}">
-    <div class="worker-info">
-        <h3>${worker.name}</h3>
-        <p>${worker.email}</p>
-        <span class="role-badge ${getRoleStyle(worker.role)}">${
-    worker.role
-  }</span>
-    </div>
-</div>`;
+  return (
+    '<div class="worker-card" data-id="' +
+    worker.id +
+    '">' +
+    '<img src="' +
+    worker.photo +
+    '" alt="' +
+    worker.name +
+    '">' +
+    '<div class="worker-info">' +
+    "<h3>" +
+    worker.name +
+    "</h3>" +
+    "<p>" +
+    worker.email +
+    "</p>" +
+    '<span class="role-badge ' +
+    getRoleStyle(worker.role) +
+    '">' +
+    worker.role +
+    "</span>" +
+    "</div>" +
+    "</div>"
+  );
 }
 
 function showUnassigned() {
   let list = getElement("unassignedList");
-  let noRoomWorkers = workers.filter((w) => {
+  let noRoomWorkers = workers.filter(function (w) {
     return !w.room;
   });
 
@@ -558,7 +575,7 @@ function showUnassigned() {
 }
 
 function showRoom(room) {
-  let roomWorkers = workers.filter((w) => {
+  let roomWorkers = workers.filter(function (w) {
     return w.room === room;
   });
   getElement("cap-" + room).textContent = roomWorkers.length;
@@ -566,15 +583,27 @@ function showRoom(room) {
   let workersContainer = getElement("workers-" + room);
   workersContainer.innerHTML = "";
 
-  roomWorkers.forEach((worker) => {
+  roomWorkers.forEach(function (worker) {
     let workerDiv = document.createElement("div");
     workerDiv.className = "room-worker";
-    workerDiv.innerHTML = `<img src="${worker.photo}" alt="${worker.name}" data-id="${worker.id}">
-<div class="room-worker-info" data-id="${worker.id}">
-    <h4>${worker.name}</h4>
-    <p>${worker.role}</p>
-</div>
-<button class="remove-btn" data-id="${worker.id}" title="Retirer">✕</button>`;
+    workerDiv.innerHTML =
+      '<img src="' +
+      worker.photo +
+      '" alt="' +
+      worker.name +
+      '" data-id="' +
+      worker.id +
+      '">' +
+      '<div class="room-worker-info" data-id="' +
+      worker.id +
+      '"><h4>' +
+      worker.name +
+      "</h4><p>" +
+      worker.role +
+      "</p></div>" +
+      '<button class="remove-btn" data-id="' +
+      worker.id +
+      '" title="Retirer">✕</button>';
 
     workersContainer.appendChild(workerDiv);
   });
@@ -606,7 +635,7 @@ function updateRoomDisplay(room) {
     roomPermissions[room] && room !== "conference" && room !== "staff";
 
   if (needsSpecificRole) {
-    let hasRequiredWorker = workers.some((w) => {
+    let hasRequiredWorker = workers.some(function (w) {
       return w.room === room;
     });
     if (hasRequiredWorker) {
@@ -618,7 +647,7 @@ function updateRoomDisplay(room) {
 }
 
 function removeWorkerFromRoom(workerId) {
-  let worker = workers.find((w) => {
+  let worker = workers.find(function (w) {
     return w.id === workerId;
   });
   if (worker) {
@@ -630,12 +659,12 @@ function removeWorkerFromRoom(workerId) {
 }
 
 function putWorkerInRoom(workerId, room) {
-  let worker = workers.find((w) => {
+  let worker = workers.find(function (w) {
     return w.id === workerId;
   });
   if (!worker) return;
 
-  let currentWorkerCount = workers.filter((w) => {
+  let currentWorkerCount = workers.filter(function (w) {
     return w.room === room;
   }).length;
   if (currentWorkerCount >= roomSizes[room]) {
@@ -650,7 +679,7 @@ function putWorkerInRoom(workerId, room) {
 }
 
 function openWorkerSelection(room) {
-  let currentWorkerCount = workers.filter((w) => {
+  let currentWorkerCount = workers.filter(function (w) {
     return w.room === room;
   }).length;
   if (currentWorkerCount >= roomSizes[room]) {
@@ -659,7 +688,7 @@ function openWorkerSelection(room) {
   }
 
   currentRoom = room;
-  let availableWorkers = workers.filter((w) => {
+  let availableWorkers = workers.filter(function (w) {
     return !w.room && canWorkInRoom(w.role, room);
   });
 
@@ -682,53 +711,60 @@ function openWorkerSelection(room) {
 }
 
 function showWorkerProfile(workerId) {
-  let worker = workers.find((w) => {
+  let worker = workers.find(function (w) {
     return w.id === workerId;
   });
   if (!worker) return;
 
   let experiencesHTML = "";
   if (worker.experiences.length > 0) {
-    worker.experiences.forEach((exp) => {
-      experiencesHTML += `<div class="info-row">
-    <div class="info-label">${exp.title}</div>
-    <div class="info-value">${exp.company} (${exp.period})</div>
-</div>`;
+    worker.experiences.forEach(function (exp) {
+      experiencesHTML +=
+        '<div class="info-row"><div class="info-label">' +
+        exp.title +
+        "</div>" +
+        '<div class="info-value">' +
+        exp.company +
+        " (" +
+        exp.period +
+        ")</div></div>";
     });
   } else {
     experiencesHTML =
       '<div class="info-row"><div class="info-value">Aucune expérience renseignée</div></div>';
   }
 
-  getElement("profileContent").innerHTML = `<div class="profile-header">
-    <img src="${worker.photo}" alt="${worker.name}">
-    <h2>${worker.name}</h2>
-    <span class="role-badge ${getRoleStyle(
-      worker.role
-    )}" style="font-size: 14px; padding: 8px 16px;">
-        ${worker.role}
-    </span>
-</div>
-<div class="profile-info">
-    <div class="info-row">
-        <div class="info-label">Email</div>
-        <div class="info-value">${worker.email}</div>
-    </div>
-    <div class="info-row">
-        <div class="info-label">Téléphone</div>
-        <div class="info-value">${worker.phone}</div>
-    </div>
-    <div class="info-row">
-        <div class="info-label">Localisation</div>
-        <div class="info-value">${
-          worker.room ? roomTitles[worker.room] : "Non assigné"
-        }</div>
-    </div>
-</div>
-<div class="profile-info">
-    <h3 style="margin-bottom: 15px; color: #495057;">Expériences Professionnelles</h3>
-    ${experiencesHTML}
-</div>`;
+  getElement("profileContent").innerHTML =
+    '<div class="profile-header">' +
+    '<img src="' +
+    worker.photo +
+    '" alt="' +
+    worker.name +
+    '"><h2>' +
+    worker.name +
+    "</h2>" +
+    '<span class="role-badge ' +
+    getRoleStyle(worker.role) +
+    '" style="font-size: 14px; padding: 8px 16px;">' +
+    worker.role +
+    "</span>" +
+    "</div>" +
+    '<div class="profile-info">' +
+    '<div class="info-row"><div class="info-label">Email</div><div class="info-value">' +
+    worker.email +
+    "</div></div>" +
+    '<div class="info-row"><div class="info-label">Téléphone</div><div class="info-value">' +
+    worker.phone +
+    "</div></div>" +
+    '<div class="info-row"><div class="info-label">Localisation</div>' +
+    '<div class="info-value">' +
+    (worker.room ? roomTitles[worker.room] : "Non assigné") +
+    "</div></div>" +
+    "</div>" +
+    '<div class="profile-info">' +
+    '<h3 style="margin-bottom: 15px; color: #495057;">Expériences Professionnelles</h3>' +
+    experiencesHTML +
+    "</div>";
 
   openModal("profileModal");
 }
@@ -795,9 +831,11 @@ function startApp() {
     "security",
     "staff",
     "archives",
-  ].forEach((room) => {
+  ].forEach(function (room) {
     showRoom(room);
   });
 }
 
 startApp();
+
+fetchWorkersData();
