@@ -8,53 +8,26 @@
   </head>
   <body>
     <div class="container">
-      <!-- Sidebar -->
+     
       <div class="sidebar">
         <h2>Personnel Non Assigné</h2>
         <button class="add-worker-btn" id="addWorkerBtn">
-          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-            <path d="M8.5 3a4 4 0 1 0 0 8 4 4 0 1 0 0-8z"></path>
-            <path d="M20 8v6"></path>
-            <path d="M23 11h-6"></path>
-        </svg>
+          + Ajouter un Employé
         </button>
         <div id="unassignedList"></div>
       </div>
 
-      <!-- Sidebar (inchangé) -->
-        <!-- <aside class="w-full lg:w-80 bg-white shadow-lg p-6 lg:h-screen lg:overflow-y-auto">
-            <div class="flex items-center mb-8">
-                <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mr-3">WS</div>
-                <h1 class="text-2xl font-bold text-blue-600">WorkSphere</h1>
-            </div>
-            
-            <div class="mb-6">
-                <h2 class="text-lg font-semibold text-gray-700 mb-4">Personnel non assigné</h2>
-                <button id="addWorkerBtn" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg font-medium transition duration-200 flex items-center justify-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                    </svg>
-                    Ajouter un employé
-                </button>
-            </div>
-            
-            <div id="unassignedStaff" class="border-2 border-dashed border-gray-300 rounded-lg p-4 min-h-40"> -->
-                <!-- Unassigned staff will be added here -->
-            <!-- </div>
-        </aside> -->
-
-      <!-- Main Content -->
+    
       <div class="main-content">
         <div class="workspace-header">
           <h1>WorkSphere - Virtual Workspace</h1>
           <p style="color: #6c757d">
-            test
+            Gérez l'affectation de votre personnel dans les différentes zones
           </p>
         </div>
 
         <div class="workspace-grid">
-          <!-- Conference Room -->
+      
           <div class="room-card" id="room-conference">
             <div class="room-header">
               <h3>Salle de Conférence</h3>
@@ -66,67 +39,7 @@
             </div>
           </div>
 
-          <!-- Reception -->
-          <!-- <div class="room-card required-empty" id="room-reception">
-            <div class="room-header">
-              <h3>Réception</h3>
-              <button class="add-to-room-btn" data-room="reception">+</button>
-            </div>
-            <div class="room-workers" id="workers-reception"></div>
-            <div class="room-capacity">
-              Capacité: <span id="cap-reception">0</span>/3
-            </div>
-          </div> -->
-
-          <!-- Archives Room -->
-          <div class="room-card" id="room-archives">
-            <div class="room-header">
-              <h3>Salle d'Archives</h3>
-              <button class="add-to-room-btn" data-room="archives">+</button>
-            </div>
-            <div class="room-workers" id="workers-archives"></div>
-            <div class="room-capacity">
-              Capacité: <span id="cap-archives">0</span>/5
-            </div>
-          </div>
-
-          <!-- Security Room -->
-          <div class="room-card required-empty" id="room-security">
-            <div class="room-header">
-              <h3>Salle de Sécurité</h3>
-              <button class="add-to-room-btn" data-room="security">+</button>
-            </div>
-            <div class="room-workers" id="workers-security"></div>
-            <div class="room-capacity">
-              Capacité: <span id="cap-security">0</span>/4
-            </div>
-          </div>
-
-
-          <!-- Staff Room -->
-          <div class="room-card" id="room-staff">
-            <div class="room-header">
-              <h3>Salle du Personnel</h3>
-              <button class="add-to-room-btn" data-room="staff">+</button>
-            </div>
-            <div class="room-workers" id="workers-staff"></div>
-            <div class="room-capacity">
-              Capacité: <span id="cap-staff">0</span>/15
-            </div>
-          </div>
-
-          
-
-          
-
-          <!-- Corridor Vertical -->
-          <div class="corridor"></div>
-
-          <!-- Corridor Horizontal -->
-          <div class="corridor-horizontal"></div>
-
-          
-          <!-- Reception -->
+      
           <div class="room-card required-empty" id="room-reception">
             <div class="room-header">
               <h3>Réception</h3>
@@ -138,7 +51,7 @@
             </div>
           </div>
 
-          <!-- Server Room -->
+         
           <div class="room-card required-empty" id="room-server">
             <div class="room-header">
               <h3>Salle des Serveurs</h3>
@@ -150,12 +63,52 @@
             </div>
           </div>
 
-        
+      
+          <div class="room-card required-empty" id="room-security">
+            <div class="room-header">
+              <h3>Salle de Sécurité</h3>
+              <button class="add-to-room-btn" data-room="security">+</button>
+            </div>
+            <div class="room-workers" id="workers-security"></div>
+            <div class="room-capacity">
+              Capacité: <span id="cap-security">0</span>/4
+            </div>
+          </div>
+
+          
+          <div class="corridor">Couloir</div>
+
+          
+          <div class="corridor-horizontal">Couloir</div>
+
+         
+          <div class="room-card" id="room-staff">
+            <div class="room-header">
+              <h3>Salle du Personnel</h3>
+              <button class="add-to-room-btn" data-room="staff">+</button>
+            </div>
+            <div class="room-workers" id="workers-staff"></div>
+            <div class="room-capacity">
+              Capacité: <span id="cap-staff">0</span>/15
+            </div>
+          </div>
+
+         
+          <div class="room-card required-empty" id="room-archives">
+            <div class="room-header">
+              <h3>Salle d'Archives</h3>
+              <button class="add-to-room-btn" data-room="archives">+</button>
+            </div>
+            <div class="room-workers" id="workers-archives"></div>
+            <div class="room-capacity">
+              Capacité: <span id="cap-archives">0</span>/5
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Add Worker Modal -->
+    
     <div class="modal" id="addWorkerModal">
       <div class="modal-content">
         <div class="modal-header">
@@ -212,7 +165,7 @@
       </div>
     </div>
 
-    <!-- Profile Modal -->
+   
     <div class="modal" id="profileModal">
       <div class="modal-content profile-modal-content">
         <div class="modal-header">
@@ -223,7 +176,7 @@
       </div>
     </div>
 
-    <!-- Select Worker Modal -->
+ 
     <div class="modal" id="selectWorkerModal">
       <div class="modal-content">
         <div class="modal-header">
