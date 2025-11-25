@@ -210,8 +210,8 @@ function fetchWorkersData() {
   fetch("workers.json")
     .then(response => response.json())
     .then(data => {
-      workers = data.workers;
-      startApp(); 
+      workers = data.workers; // on charge les données
+      startApp(); // on démarre l'app
     })
     .catch(error => console.log("Erreur :", error));
 }
